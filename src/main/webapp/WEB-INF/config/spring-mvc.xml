@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"  
+    xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans    
+      http://www.springframework.org/schema/beans/spring-beans-4.1.xsd    
+      http://www.springframework.org/schema/context    
+      http://www.springframework.org/schema/context/spring-context.xsd    
+      http://www.springframework.org/schema/mvc    
+      http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd">
+	<!-- 设置使用注解的类所在的jar包 -->
+	<context:component-scan base-package="com.fenyou.core.controller"></context:component-scan>
+	<!-- 启用spring mvc 注解 -->
+	<mvc:annotation-driven/>
+	<bean  
+        class="org.springframework.web.servlet.view.InternalResourceViewResolver">  
+        <property name="prefix">  
+                        <!-- 这个配置是配置JSP页面的位置，按照你自己的配置来配 -->  
+            <value>/component/</value>  
+        </property>  
+        <property name="suffix">  
+            <value>.jsp</value>  
+        </property>  
+    </bean>
+    	<!--<mvc:interceptors>
+		 使用bean定义一个Interceptor，直接定义在mvc:interceptors根下面的Interceptor将拦截所有的请求 -->
+		<!--<bean class="com.fenyou.core.interceptor.SpringMVCInterceptor"/>
+		 怎么配置这个标签？ -->
+		<!--<mvc:interceptor>
+			<mvc:mapping path="*.do"/>
+			 定义在mvc:interceptor下面的表示是对特定的请求才进行拦截的 
+			<bean class="com.fenyou.core.interceptor.LoginInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>  -->
+	
+	<!-- 验证json是否支持，json是否能够转换数据  start -->
+		<bean id="messageAdapter" class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <!-- Support JSON --> 
+                <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+            </list>
+        </property>
+    </bean>
+	    <bean id="exceptionMessageAdapter" class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerExceptionResolver">
+        <property name="messageConverters">
+            <list>
+                <!-- Support JSON --> 
+                <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+            </list>
+        </property>
+    </bean>
+    <!-- json    end -->
+</beans>    
