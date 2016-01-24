@@ -37,7 +37,7 @@
                     username:$("#username").val(),
                     password:$("#password").val()},
 				success : function(data){
-					document.location.href="component/home/home.jsp";
+					document.location.href="pages/home/home.jsp";
 				}
 			});
 		});
