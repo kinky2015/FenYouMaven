@@ -28,7 +28,10 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>/WEB-INF/config/spring-*.xml</param-value>
 	</context-param>
-	
+	<listener>
+	     <description>spring监听器</description>  
+	     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
 	<!-- servlet配置 -->
 	<servlet>
 		<servlet-name>springMvc</servlet-name>
