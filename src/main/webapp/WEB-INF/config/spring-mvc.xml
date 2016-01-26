@@ -9,32 +9,60 @@
       http://www.springframework.org/schema/mvc    
       http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 	<!-- 设置使用注解的类所在的jar包 -->
-	<context:component-scan base-package="com.fenyou.core.controller"></context:component-scan>
-	<!-- 启用spring mvc 注解 -->
-	<mvc:annotation-driven></mvc:annotation-driven>
+	<context:component-scan base-package="com.fenyou.core.controller"/>
+	
+		<!-- <context:component-scan /> -->
+	<!-- 扫描指定的包中的类上的注解，常用的注解有： -->
+	<!-- @Controller 声明Action组件 -->
+	<!-- @Service 声明Service组件 @Service("xxxService") -->
+	<!-- @Repository 声明Dao组件 -->
+	<!-- @Component 泛指组件, 当不好归类时. -->
+	<!-- @RequestMapping("/menu") 请求映射 -->
+	<!-- @Resource 用于注入，( j2ee提供的 ) 默认按名称装配，@Resource(name="beanName") -->
+	<!-- @Autowired 用于注入，(spring提供的) 默认按类型装配 -->
+	<!-- @Transactional( rollbackFor={Exception.class}) 事务管理 -->
+	<!-- @ResponseBody将内容或对象作为 HTTP 响应正文返回，并调用适合HttpMessageConverter的Adapter转换对象，写入输出流 -->
+	<!-- @Scope("prototype") 设定bean的作用域 -->
+
+
+	<!-- 开启MVC注解,表示SpringMVC支持注解功能 做了很多事情，不包括添加自己定义的拦截器 -->
+	<mvc:annotation-driven />
+
+	<!-- 拦截器 -->
+	<!-- <mvc:interceptors> <bean class="com.phn.inteceptor" /> </mvc:interceptors> -->
+
+	<!-- 方案一 （二选一）表示不对静态资源如CSS、JS、HTML等进行拦截 -->
+	<!-- 当在web.xml 中 DispatcherServlet使用 <url-pattern>/</url-pattern> 映射时，能映射静态资源,使用默认的servlet来响应请求 -->
+	<!-- <mvc:default-servlet-handler /> -->
+
+	<!-- 方案二 （二选一） 静态资源映射 -->
+	<!-- <mvc:resources mapping="/images/**" location="/WEB-INF/images/" />
+	<mvc:resources mapping="/css/**" location="/WEB-INF/css/" />
+	<mvc:resources mapping="/js/**" location="/WEB-INF/js/" />
+	<mvc:resources mapping="/html/**" location="/WEB-INF/html/" /> -->
+	
+	
+	
+	
+	
+	
 	<bean  
         class="org.springframework.web.servlet.view.InternalResourceViewResolver">  
         <property name="prefix">  
                         <!-- 这个配置是配置JSP页面的位置，按照你自己的配置来配 -->  
-            <value>/component/</value>  
+            <value>/pages/</value>  
         </property>  
         <property name="suffix">  
             <value>.jsp</value>  
         </property>  
     </bean>
-    	<!--<mvc:interceptors>
-		 使用bean定义一个Interceptor，直接定义在mvc:interceptors根下面的Interceptor将拦截所有的请求 -->
-		<!--<bean class="com.fenyou.core.interceptor.SpringMVCInterceptor"/>
-		 怎么配置这个标签？ -->
-		<!--<mvc:interceptor>
-			<mvc:mapping path="*.do"/>
-			 定义在mvc:interceptor下面的表示是对特定的请求才进行拦截的 
-			<bean class="com.fenyou.core.interceptor.LoginInterceptor"/>
-		</mvc:interceptor>
-	</mvc:interceptors>  -->
-	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="20971520"/>
+        <property name="defaultEncoding" value="utf-8"/>
+    </bean>
+    <bean id="handlerMapping" class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
 	<!-- 验证json是否支持，json是否能够转换数据  start -->
-		<bean id="messageAdapter" class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+	<bean id="messageAdapter" class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
         <property name="messageConverters">
             <list>
                 <!-- Support JSON --> 
