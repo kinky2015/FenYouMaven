@@ -205,6 +205,6 @@
 	</dependency>
   </dependencies>
   <build>
-    <finalName>project</finalName>
+    <finalName>FenYouMaven</finalName>
   </build>
 </project>
