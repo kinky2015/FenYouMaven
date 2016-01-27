@@ -29,16 +29,32 @@
 			$("#right_hand").attr("class", "initial_right_hand");
 			$("#right_hand").attr("style", "right:-112px;top:-12px");
 		});
+		
 		$("#submit").click(function(){
+			console.log("login");
+			var user = {
+					"userName" : $("#username").val(),
+					"passWord" : hex_md5($("#password").val())
+				};
 			$.ajax({
-				type : "GET",
+				type : "post",
 				url : "login.do",
-				data: {
-                    username:$("#username").val(),
-                    password:$("#password").val()},
+				data: user,
 				success : function(data){
-					document.location.href="pages/home/home.jsp";
-				}
+					if (false == data.loginResult) {
+						alert("用户名或者密码错误，请重新登录！");
+//						document.location.href="pages/login/login.html";
+					} else if (true == data.loginResult) {
+//						alert("登录成功！");
+						document.location.href="pages/home/home.jsp";
+					/*	var indexUrl = window.location.protocol+"//"+window.location.host+window.location.pathname+"html/index.html";
+						window.location = indexUrl;*/
+					}
+					
+				},
+			error : function() {
+				alert("服务器发生故障，请尝试重新登录！");
+			}
 			});
 		});
 	});

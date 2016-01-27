@@ -1,5 +1,7 @@
 package com.fenyou.core.service;
 
-public interface UserService<T> {
+import com.fenyou.core.model.User;
 
+public interface UserService<T> {
+	public boolean isExist(User user);
 }

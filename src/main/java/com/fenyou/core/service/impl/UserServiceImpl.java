@@ -4,9 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fenyou.core.dao.UserDao;
+import com.fenyou.core.model.User;
 import com.fenyou.core.service.UserService;
 @Service("userService")
 public class UserServiceImpl<T> implements UserService<T>{
 	@Autowired
 	private UserDao<T> userDao;
+
+	public boolean isExist(User user) {
+		// TODO Auto-generated method stub
+		return userDao.isExist(user);
+	}
 }

@@ -20,19 +20,14 @@ public class User implements Serializable{
 	private String userName;
 	private String passWord;
 	private String desc;
-	public User(String userName, String passWord) {
-		super();
-		this.userName = userName;
-		this.passWord = passWord;
-	}
-	@Column(name="U_USERNAME",length=10)
+	@Column(name="U_USERNAME",length=30)
 	public String getUserName() {
 		return userName;
 	}
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	@Column(name="U_PASSWORD",length=10)
+	@Column(name="U_PASSWORD",length=500)
 	public String getPassWord() {
 		return passWord;
 	}

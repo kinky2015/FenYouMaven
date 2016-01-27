@@ -1,5 +1,7 @@
 package com.fenyou.core.dao;
 
-public interface UserDao<T> {
+import com.fenyou.core.model.User;
 
+public interface UserDao<T> {
+	public boolean isExist(User user);
 }
