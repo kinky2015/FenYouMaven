@@ -13,6 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link rel="stylesheet" type="text/css" href="../../plugins/jquery-easyui-1.4.3/demo/demo.css">
     <script type="text/javascript" src="../../plugins/jquery-easyui-1.4.3/jquery.min.js"></script>
     <script type="text/javascript" src="../../plugins/jquery-easyui-1.4.3/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="pages/home/home.js"></script>
 </head>
  <body class="easyui-layout">
     <div class="north" data-options="region:'north',split:true" style="height:100px;"></div>
@@ -21,8 +22,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		<a href="https://fenyou.com" style="text-decoration: none; color: #5f6163;font-weight: bold">FenYou集团</a>
     </div>
     <div data-options="region:'west',title:'首页',split:true" style="width:150px;">
-    <div class="easyui-panel">
-	<ul class="easyui-tree" data-options="url:'tree_data2.json',method:'get',animate:true"></ul>
+    <div id="div-tree" class="easyui-panel">
+	<!-- <ul class="easyui-tree" data-options="url:'tree_data2.json',method:'get',animate:true"></ul> -->
+	<ul id="tree"></ul>
 	</div>
     </div>
     <div data-options="region:'center',title:''" style="padding:5px;background:#eee;"></div>

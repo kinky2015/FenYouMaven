@@ -14,13 +14,6 @@ public class NodeVo implements Serializable{
 	private String state;
 	private List<NodeVo> children;
 	
-	public NodeVo(String id, String text, String state, List<NodeVo> children) {
-		super();
-		this.id = id;
-		this.text = text;
-		this.state = state;
-		this.children = children;
-	}
 	public String getId() {
 		return id;
 	}
