@@ -1,6 +1,12 @@
-<!DOCTYpE html>
+<%@ page language="java" contentType="text/html; charset=utf-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+HttpSession sessions = request.getSession();
+%>
+<!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>丰友网登陆页</title>
     <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
     <meta http-equiv="description" content="this is my page">
