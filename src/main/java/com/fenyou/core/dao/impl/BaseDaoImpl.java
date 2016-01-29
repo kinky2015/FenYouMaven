@@ -1,5 +1,7 @@
 package com.fenyou.core.dao.impl;
 
+import java.util.List;
+
 import com.fenyou.core.dao.BaseDao;
 /**
  * 
@@ -12,4 +14,33 @@ import com.fenyou.core.dao.BaseDao;
  */
 public class BaseDaoImpl<T> implements BaseDao<T> {
 
+	public boolean save(T t)
+	{
+		return false;
+	}
+
+	public boolean update(T t)
+	{
+		return false;
+	}
+
+	public boolean remove(T t)
+	{
+		return false;
+	}
+
+	public List<T> getList()
+	{
+		return null;
+	}
+
+	public List<T> hqlQuery(String hql)
+	{
+		return null;
+	}
+
+	public List<T> sqlQuery(String sql)
+	{
+		return null;
+	}
 }

@@ -5,12 +5,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fenyou.core.common.base.impl.AbstractBaseController;
 import com.fenyou.core.vo.NodeVo;
 
 import net.sf.json.JSONArray;
 
 @Controller
-public class HomeController {
+public class HomeController extends AbstractBaseController{
 	@RequestMapping(value="/loadTree.do",method = RequestMethod.POST)
 	public @ResponseBody String initTree(){
 		NodeVo node = new NodeVo("1","节点1");

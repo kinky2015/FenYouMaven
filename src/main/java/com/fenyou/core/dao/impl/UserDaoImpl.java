@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.fenyou.core.dao.UserDao;
 import com.fenyou.core.model.User;
 @Repository("userDao")
-public class UserDaoImpl implements UserDao<Object>{
+public class UserDaoImpl extends BaseDaoImpl<Object> implements UserDao<Object>{
 	@Resource
     private SessionFactory sessionFactory;
 

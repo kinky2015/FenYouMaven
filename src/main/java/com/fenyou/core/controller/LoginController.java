@@ -9,11 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fenyou.core.common.base.impl.AbstractBaseController;
 import com.fenyou.core.model.User;
 import com.fenyou.core.service.UserService;
 
 @Controller
-public class LoginController {
+public class LoginController extends AbstractBaseController{
 	@Autowired
 	private UserService<User> userService;
 	@RequestMapping(value="/login.do",method = RequestMethod.POST)
