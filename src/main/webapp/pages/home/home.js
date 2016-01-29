@@ -10,12 +10,4 @@
 				});
 			}
 		});
-		
-		
-		/*$("#ttree").tree({
-			url:"../../loadTree.do"
-			loadFilter: function(data){
-				return data.node;
-			}
-		});*/
 	});

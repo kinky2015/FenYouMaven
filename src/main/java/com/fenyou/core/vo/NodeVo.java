@@ -14,7 +14,7 @@ public class NodeVo implements Serializable{
 	private static final long serialVersionUID = 1741572848217111084L;
 	private String id;
 	private String text;
-	private String state;
+	private String state = "open";
 	private boolean checked;
 	private Map<String,Object> attributes;
 	private List<NodeVo> children;

@@ -23,11 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		<a href="https://fenyou.com" style="text-decoration: none; color: #5f6163;font-weight: bold">FenYou集团</a>
     </div>
     <div data-options="region:'west',title:'首页',split:true" style="width:150px;">
-    <div id="div-tree" class="easyui-panel" style="width:150px;height:200px;">
-    1223
-	<!-- <ul class="easyui-tree" data-options="url:'tree_data2.json',method:'get',animate:true"></ul> -->
 	<ul id="ttree" class="easyui-tree"></ul>
-	</div>
     </div>
     <div data-options="region:'center',title:''" style="padding:5px;background:#eee;"></div>
 </body>
