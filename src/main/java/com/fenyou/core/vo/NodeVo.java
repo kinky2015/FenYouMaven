@@ -1,6 +1,8 @@
 package com.fenyou.core.vo;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -16,6 +18,12 @@ public class NodeVo implements Serializable{
 	private boolean checked;
 	private Map<String,Object> attributes;
 	private List<NodeVo> children;
+	
+	public NodeVo(String id,String text){
+		this.id=id;
+		this.text=text;
+		attributes = new HashMap<String, Object>();
+	}
 	
 	public String getId() {
 		return id;
@@ -52,5 +60,17 @@ public class NodeVo implements Serializable{
 	}
 	public void setAttributes(Map<String, Object> attributes) {
 		this.attributes = attributes;
+	}
+	public void addChild(NodeVo nodeVo) {
+		if (children == null) {
+			children = new ArrayList<NodeVo>();
+		}
+		children.add(nodeVo);
+	}
+	@Override
+	public String toString() {
+		
+		return "NodeVo [id=" + id + ", text=" + text + ",state" + state + ", checked=" + checked+ ",  attributes=" + attributes + ",children=" + children + "]";
+		
 	}
 }
