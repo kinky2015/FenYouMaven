@@ -2,6 +2,7 @@ package com.fenyou.core.vo;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 
 public class NodeVo implements Serializable{
 
@@ -12,6 +13,8 @@ public class NodeVo implements Serializable{
 	private String id;
 	private String text;
 	private String state;
+	private boolean checked;
+	private Map<String,Object> attributes;
 	private List<NodeVo> children;
 	
 	public String getId() {
@@ -37,5 +40,17 @@ public class NodeVo implements Serializable{
 	}
 	public void setChildren(List<NodeVo> children) {
 		this.children = children;
+	}
+	public boolean isChecked() {
+		return checked;
+	}
+	public void setChecked(boolean checked) {
+		this.checked = checked;
+	}
+	public Map<String, Object> getAttributes() {
+		return attributes;
+	}
+	public void setAttributes(Map<String, Object> attributes) {
+		this.attributes = attributes;
 	}
 }
