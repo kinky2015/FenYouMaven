@@ -6,7 +6,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>首页</title>
 	<link rel="stylesheet" type="text/css" href="../../plugins/jquery-easyui-1.4.3/themes/default/easyui.css">
     <link rel="stylesheet" type="text/css" href="../../plugins/jquery-easyui-1.4.3/themes/icon.css">
@@ -25,6 +24,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div data-options="region:'west',title:'首页',split:true" style="width:150px;">
 	<ul id="ttree" class="easyui-tree"></ul>
     </div>
-    <div data-options="region:'center',title:''" style="padding:5px;background:#eee;"></div>
+    <div data-options="region:'center',title:'欢迎进入分忧平台！'" style="padding:5px;background:#eee;">
+    	<div class="easyui-tabs" data-options="fit:true,border:false,plain:true">
+				<div title="首页" style="padding:10px">关于本公司</div>
+		</div>
+    </div>
 </body>
 </html>

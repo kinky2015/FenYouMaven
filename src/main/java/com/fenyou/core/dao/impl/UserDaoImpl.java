@@ -1,26 +1,14 @@
 package com.fenyou.core.dao.impl;
 
-import javax.annotation.Resource;
-
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
 import com.fenyou.core.dao.UserDao;
 import com.fenyou.core.model.User;
 @Repository("userDao")
 public class UserDaoImpl extends BaseDaoImpl<Object> implements UserDao<Object>{
-	@Resource
-    private SessionFactory sessionFactory;
 
-	public Session getSession() {
-		return sessionFactory.getCurrentSession();
-	}
-
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
-	}
 
 	public boolean isExist(User user) {
 		Session session = this.getSession();
