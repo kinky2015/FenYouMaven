@@ -6,7 +6,19 @@
 			dataType:"JSON",
 			success : function(data){
 				$("#ttree").tree({
-					data : data
+					data : data,
+					onClick : function(node){
+						 if ($("#tb").tabs('exists', node.text)) {
+							 
+					                $("#tb").tabs('select',node.text);
+					            }else{
+					            	$('#tb').tabs('add', {
+					            		title:  node.text,
+					            		href: node.attributes.url,
+					            		closable: true
+					            	});  
+					            }
+					}
 				});
 			}
 		});

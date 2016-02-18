@@ -14,8 +14,6 @@ public class Node extends BaseElement{
 	 * 
 	 */
 	private static final long serialVersionUID = -8716293343275936437L;
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="ID",length=20)
 	private long id;
 	@Column(name="NODETEXT",length=50)

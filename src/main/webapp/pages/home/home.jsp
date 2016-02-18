@@ -24,8 +24,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div data-options="region:'west',title:'首页',split:true" style="width:150px;">
 	<ul id="ttree" class="easyui-tree"></ul>
     </div>
-    <div data-options="region:'center',title:'欢迎进入分忧平台！'" style="padding:5px;background:#eee;">
-    	<div class="easyui-tabs" data-options="fit:true,border:false,plain:true">
+    <div data-options="region:'center',title:'欢迎进入分忧平台！'">
+    	<div id="tb" class="easyui-tabs" data-options="fit:true,border:false,plain:true">
 				<div title="首页" style="padding:10px">关于本公司</div>
 		</div>
     </div>

@@ -7,10 +7,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="t_baseelement")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class BaseElement implements Serializable
 {
 
@@ -21,25 +24,24 @@ public class BaseElement implements Serializable
 	 */
 	private static final long serialVersionUID = 4664272978979337364L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="ID",length=20)
-	private long id;
-	@Column(name="TEXT",length=50)
-	private String text;
-	public long getId()
+	@Column(name="FID",length=20)
+	private long fid;
+	@Column(name="FTEXT",length=50)
+	private String ftext;
+	public long getFid()
 	{
-		return id;
+		return fid;
 	}
-	public void setId(long id)
+	public void setFid(long fid)
 	{
-		this.id = id;
+		this.fid = fid;
 	}
-	public String getText()
+	public String getFtext()
 	{
-		return text;
+		return ftext;
 	}
-	public void setText(String text)
+	public void setFtext(String ftext)
 	{
-		this.text = text;
+		this.ftext = ftext;
 	}
 }
