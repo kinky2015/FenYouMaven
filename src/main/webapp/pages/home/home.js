@@ -1,5 +1,4 @@
-	$(function() {
-		
+$(function() {
 		$.ajax({
 			type : "post",
 			url : "../../loadTree.do",
@@ -22,4 +21,4 @@
 				});
 			}
 		});
-	});
+});

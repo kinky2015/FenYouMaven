@@ -1,0 +1,26 @@
+.north{
+	height : 100px;
+	background: url("../../local/images/north.png") no-repeat;
+	background-size:100% auto;
+}
+.south{
+	height:50px;
+	text-align: center;
+	padding:10px 0;
+}
+.foot{
+	text-decoration: none; 
+	color: #5f6163;
+	font-weight: bold;
+}
+.west{
+	width:150px;
+}
+.configdiv{
+	position : absolute;
+	right: 0;
+	bottom: 0;
+	margin-right : 10px;
+	margin-bottom : 10px;
+	font-size:16px;
+}
