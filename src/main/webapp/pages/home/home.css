@@ -16,7 +16,8 @@
 .west{
 	width:150px;
 }
-.configdiv{
+a.configdiv{
+	text-decoration:none;
 	position : absolute;
 	right: 0;
 	bottom: 0;
