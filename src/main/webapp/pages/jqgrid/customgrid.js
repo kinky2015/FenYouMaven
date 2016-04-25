@@ -22,9 +22,9 @@ $.extend($.fn.datagrid.methods, {
                         var tfv = tf[row[field]];
                         if (tfv) {
                             tfv.push(i);
-                        } 
-                        else {
+                        } else {
                             tfv = tf[row[field]] = [i];
+                           
                         }
                     }
                 }
@@ -59,5 +59,5 @@ $.extend($.fn.datagrid.methods, {
                 });
             });
         });
-    }
+    }//
 });

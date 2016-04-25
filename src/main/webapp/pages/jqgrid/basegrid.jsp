@@ -22,7 +22,7 @@ HttpSession sessions = request.getSession();
 	<p>The DataGrid is created from markup, no JavaScript code needed.</p>
 	<div style="margin:20px 0;"></div>
 	<!-- data-options="singleSelect:true,collapsible:true,url:'pages/jqgrid/datagrid_data1.json',method:'get'" -->
-	<table id="dg" class="easyui-datagrid" title="Basic DataGrid" style="width:700px;height:250px"
+	<!-- <table id="dg" class="easyui-datagrid" title="Basic DataGrid" style="width:700px;height:250px"
 	data-options="singleSelect:true,collapsible:true,url:'pages/jqgrid/datagrid_data1.json',method:'get'">
 		<thead>
 			<tr>
@@ -34,7 +34,8 @@ HttpSession sessions = request.getSession();
 				<th data-options="field:'status',width:60,align:'center'">Status</th>
 			</tr>
 		</thead>
-	</table>
+	</table> -->
+	<table id="dg"></table>
  
 </body>
 </html>
