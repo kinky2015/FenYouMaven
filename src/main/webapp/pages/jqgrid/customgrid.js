@@ -9,25 +9,18 @@ $.extend($.fn.datagrid.methods, {
             var i = 0,
             j = 0,
             temp = {};
-            for (i; i < rows.length; i++) {
-                var row = rows[i];
-                j = 0;
-                for (j; j < fields.length; j++) {
-                    var field = fields[j];
-                    var tf = temp[field];
-                    if (!tf) {
-                        tf = temp[field] = {};
-                        tf[row[field]] = [i];
-                    } else {
-                        var tfv = tf[row[field]];
-                        if (tfv) {
-                            tfv.push(i);
-                        } else {
-                            tfv = tf[row[field]] = [i];
-                           
-                        }
-                    }
-                }
+            var rowstemp={};
+            for(i;i<fields.length;i++){
+            	var field = fields[i];
+            	var tf = temp[field];
+            	if(!tf){
+            		tf=temp[field]={};
+            	}
+            	
+        		var newrows = loop(tf,rows,field);
+        		if(newrows){
+        			rows=newrows;
+        		}
             }
             $.each(temp, function (field, colunm) {
                 $.each(colunm, function () {
@@ -50,6 +43,17 @@ $.extend($.fn.datagrid.methods, {
                                     field: field,
                                     rowspan: rowspan
                                 });
+//                                target.datagrid('insertRow',{
+//                                	index:before+1,
+//                                	row:{productid:"5",
+//                                    	productname:"2",
+//                                    	unitcost:12.00,
+//                                    	status:"4",
+//                                    	listprice:35.50,
+//                                    	attr1:"3",
+//                                    	itemid:"2"
+//                                    }
+//                                });
                             }
                             if (after && (after - before) != 1) {
                                 megerIndex = after;
@@ -61,3 +65,29 @@ $.extend($.fn.datagrid.methods, {
         });
     }//
 });
+
+
+
+function  loop(tf,rows,field){
+	var newrow=new Array();
+	var temps={};
+	$.each(rows,function(index,row){
+		if(row){
+			 var ttf = tf[row[field]];
+			 if(!ttf){
+				 ttf=tf[row[field]] = [index]; 
+			 }else{
+				 ttf.push(index);
+				 temps[row[field]]=tf[row[field]];
+			 }
+		}
+	});
+	$.each(temps,function(f,c){
+		
+		$.each(c,function(k,v){
+			newrow[v]=rows[v];
+		})
+	});
+	
+	return newrow;
+}
