@@ -43,27 +43,52 @@ $.extend($.fn.datagrid.methods, {
                                     field: field,
                                     rowspan: rowspan
                                 });
-//                                target.datagrid('insertRow',{
-//                                	index:before+1,
-//                                	row:{productid:"5",
-//                                    	productname:"2",
-//                                    	unitcost:12.00,
-//                                    	status:"4",
-//                                    	listprice:35.50,
-//                                    	attr1:"3",
-//                                    	itemid:"2"
-//                                    }
-//                                });
                             }
                             if (after && (after - before) != 1) {
                                 megerIndex = after;
                             }
                         }
+                    }else{
+//                    	 target.datagrid('insertRow',{
+//                         	index:group[0]+1,
+//                         	row:{productid:"5",
+//                             	productname:"2",
+//                             	unitcost:12.00,
+//                             	status:"4",
+//                             	listprice:35.50,
+//                             	attr1:"3",
+//                             	itemid:"2"
+//                             }
+//                         });
                     }
                 });
             });
+            
+            
         });
-    }//
+    },//
+	footerSummery:function(jq, fields){
+		  jq.each(function () {
+			  var target = $(this);
+//	            if (!fields) {
+	              var  allfields = target.datagrid("getColumnFields");
+//	            }
+	            var rows = target.datagrid("getRows");
+	            var alltemp={};
+	            for(var i=0;i<allfields.length;i++){
+//	            	var field = fields[i];
+	            	var af = allfields[i];
+	            	$.each(fields,function(index,column){
+	            		if(af==column){
+	            			break;
+	            		}else{
+	            			alltemp[af]=[i];
+	            		}
+	            	});
+	            }
+	            var test;
+		  });
+	}
 });
 
 
